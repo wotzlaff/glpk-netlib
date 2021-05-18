@@ -33,11 +33,11 @@ async function downloadAllFiles(summary) {
       continue
     }
     const data = await res.text()
-    await fs.promises.writeFile('../data/raw/' + inst.name, data)
+    await fs.promises.writeFile('./data/raw/' + inst.name, data)
   }
 }
 
 getFromReadme().then(async r => {
-  await fs.promises.writeFile('../data/summary.json', JSON.stringify(r))
+  await fs.promises.writeFile('./data/summary.json', JSON.stringify(r))
   await downloadAllFiles(r)
 })

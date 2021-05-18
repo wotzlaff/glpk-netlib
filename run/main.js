@@ -4,9 +4,9 @@ import { loadModule, Model } from 'glpk-ts'
 
 loadModule().then(mod => {
   mod._glp_term_out(0)
-  const files = fs.readdirSync('../data/mps')
+  const files = fs.readdirSync('./data/mps')
   for (let file of files) {
-    const data = fs.readFileSync(path.join('../data/mps', file))
+    const data = fs.readFileSync(path.join('./data/mps', file))
     const m = Model.fromMPS(data, 'deck')
     const t0 = process.hrtime.bigint()
     m.simplex({ msgLevel: 'off' })

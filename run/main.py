@@ -3,9 +3,9 @@ import glpk
 import os
 import time
 
-files = sorted(glob.glob('../data/mps/*.mps'))
+files = sorted(glob.glob('./data/mps/*.mps'))
 
-with open('pyglpk.log', 'w') as fh:
+with open('./logs/pyglpk.log', 'w') as fh:
     for f in files:
         bname = os.path.basename(f)[:-4]
         m = glpk.LPX(mps=f)
